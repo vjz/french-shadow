@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Mobile-first French shadowing lessons from public-domain and Creative Commons texts."
+    />
+    <title>French Shadow</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar" aria-label="Lesson navigation">
+        <div>
+          <p class="eyebrow">French Shadow</p>
+          <h1>Listen, repeat, read.</h1>
+        </div>
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+          <span aria-hidden="true">◐</span>
+        </button>
+      </header>
+
+      <section class="lesson-meta" aria-labelledby="lessonTitle">
+        <div>
+          <p class="level" id="lessonLevel">A2 · Fable</p>
+          <h2 id="lessonTitle">Le Corbeau et le Renard</h2>
+          <p class="source" id="lessonSource">
+            Adapted excerpt from Jean de La Fontaine. Public domain source text.
+          </p>
+        </div>
+        <div class="progress-ring" aria-label="Lesson progress">
+          <span id="progressCount">1/6</span>
+        </div>
+      </section>
+
+      <section class="practice-card" aria-live="polite">
+        <div class="sentence-tools">
+          <button class="tool-button icon-tool" id="backButton" type="button" aria-label="Previous pronunciation" title="Previous pronunciation">
+            <span aria-hidden="true">↶</span>
+          </button>
+          <button class="tool-button active" id="playButton" type="button">
+            <span aria-hidden="true">▶</span>
+            Listen
+          </button>
+          <div class="speed-control" aria-label="Speech speed">
+            <button class="speed-option" type="button" data-rate="0.28">Slow</button>
+            <button class="speed-option active" type="button" data-rate="0.8">Normal</button>
+            <button class="speed-option" type="button" data-rate="1.25">Native</button>
+          </div>
+          <label class="pause-control" for="pauseSlider">
+            <span>Pause</span>
+            <input id="pauseSlider" type="range" min="2" max="6" step="0.25" value="3.25" />
+            <strong id="pauseValue">3.25s</strong>
+          </label>
+        </div>
+
+        <article class="sentence-block">
+          <div class="french passage" id="frenchText"></div>
+        </article>
+
+        <div class="quick-actions" aria-label="Practice shortcuts">
+          <button class="secondary-button" id="repeatButton" type="button">Repeat phrase</button>
+          <button class="secondary-button" id="restartButton" type="button">Start over</button>
+        </div>
+
+        <div class="status-row">
+          <div>
+            <p class="status-label">Practice status</p>
+            <p id="statusText">Ready to listen.</p>
+          </div>
+          <div class="meter" aria-hidden="true">
+            <span id="meterFill"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="library" aria-labelledby="nextArticleTitle">
+        <div class="section-heading">
+          <h2 id="nextArticleTitle">Next article</h2>
+          <p>Keep practice short and repeatable.</p>
+        </div>
+        <div class="library-list" id="nextArticle"></div>
+      </section>
+
+      <section class="publish-note" aria-labelledby="publishNoteTitle">
+        <h2 id="publishNoteTitle">Before You Publish</h2>
+        <p>
+          This prototype uses the browser voice, so audio quality can vary by device. For public-domain or Creative Commons passages, keep the source and license visible before adding them.
+        </p>
+      </section>
+    </main>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

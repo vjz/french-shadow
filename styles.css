@@ -1,0 +1,498 @@
+:root {
+  color-scheme: light;
+  --bg: #f7f4ee;
+  --ink: #17201b;
+  --muted: #637069;
+  --panel: #fffdfa;
+  --panel-strong: #ffffff;
+  --line: #ddd7ca;
+  --accent: #0f766e;
+  --accent-strong: #0b5f59;
+  --accent-soft: #d8f3ee;
+  --gloss: #6b4e16;
+  --gloss-on-accent: #e9fffb;
+  --shadow: 0 18px 44px rgb(23 32 27 / 12%);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+:root.dark {
+  color-scheme: dark;
+  --bg: #111816;
+  --ink: #f3f0e9;
+  --muted: #a8b3ad;
+  --panel: #19231f;
+  --panel-strong: #202d28;
+  --line: #31413a;
+  --accent: #5eead4;
+  --accent-strong: #8cf4e4;
+  --accent-soft: #153f3b;
+  --gloss: #f6d884;
+  --gloss-on-accent: #062521;
+  --shadow: 0 18px 44px rgb(0 0 0 / 26%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+button {
+  border: 0;
+  color: inherit;
+  font: inherit;
+}
+
+.app-shell {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 18px 16px 28px;
+}
+
+.topbar,
+.lesson-meta,
+.status-row,
+.section-heading,
+.lesson-nav,
+.sentence-tools {
+  display: flex;
+  align-items: center;
+}
+
+.topbar {
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0 18px;
+}
+
+.eyebrow,
+.level,
+.source,
+.status-label,
+.section-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.eyebrow,
+.level,
+.status-label {
+  font-weight: 750;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  margin: 2px 0 0;
+  font-size: clamp(1.55rem, 6vw, 2.35rem);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin: 4px 0 6px;
+  font-size: 1.2rem;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.icon-button {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+.lesson-meta {
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 14px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.source {
+  line-height: 1.45;
+}
+
+.progress-ring {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, var(--panel) 54%, transparent 55%),
+    conic-gradient(var(--accent) var(--progress, 16.6%), var(--line) 0);
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.practice-card {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-strong);
+  box-shadow: var(--shadow);
+}
+
+.sentence-tools {
+  gap: 8px;
+  padding-bottom: 14px;
+}
+
+.tool-button {
+  display: inline-flex;
+  min-height: 42px;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.tool-button.active {
+  border-color: transparent;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-weight: 750;
+}
+
+.tool-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.tool-button.icon-tool {
+  width: 44px;
+  flex: 0 0 44px;
+  padding: 0;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.speed-control {
+  display: inline-grid;
+  min-height: 42px;
+  flex: 1 1 auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.speed-option {
+  padding: 0 10px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 750;
+}
+
+.speed-option + .speed-option {
+  border-left: 1px solid var(--line);
+}
+
+.speed-option.active {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.pause-control {
+  display: grid;
+  min-height: 42px;
+  flex: 1 1 auto;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.pause-control input {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.pause-control strong {
+  color: var(--accent-strong);
+  font-size: 0.86rem;
+}
+
+.sentence-block {
+  min-height: 280px;
+  padding: 18px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, var(--panel), color-mix(in srgb, var(--panel) 74%, var(--accent-soft)));
+}
+
+.french {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 5vw, 2.05rem);
+  line-height: 1.42;
+}
+
+.passage-line {
+  margin: 0 0 14px;
+}
+
+.passage-line:last-child {
+  margin-bottom: 0;
+}
+
+.phrase {
+  display: inline-flex;
+  min-height: 1.6em;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 0.06em 0.2em 0;
+  padding: 0 0.1em;
+  border-radius: 6px;
+  vertical-align: top;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.phrase-text {
+  display: block;
+}
+
+.phrase-gloss {
+  display: none;
+  max-width: 13rem;
+  color: var(--gloss);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: 0.78rem;
+  font-weight: 750;
+  line-height: 1.18;
+}
+
+.phrase.speaking {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.phrase.speaking .phrase-gloss {
+  color: var(--gloss-on-accent);
+}
+
+.phrase.repeat-target {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.phrase.speaking .phrase-gloss,
+.phrase.repeat-target .phrase-gloss {
+  display: block;
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding-top: 14px;
+}
+
+.status-row {
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 14px;
+}
+
+.status-row p {
+  margin: 2px 0 0;
+}
+
+.meter {
+  width: 116px;
+  height: 9px;
+  flex: 0 0 116px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.meter span {
+  display: block;
+  width: 18%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width 220ms ease;
+}
+
+.lesson-nav {
+  gap: 10px;
+  margin: 14px 0 28px;
+}
+
+.primary-button,
+.secondary-button {
+  min-height: 48px;
+  flex: 1 1 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.primary-button {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.secondary-button {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+}
+
+.secondary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.library {
+  margin-top: 14px;
+  padding-bottom: 18px;
+}
+
+.publish-note {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.publish-note h2 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.publish-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.section-heading {
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.library-list {
+  display: grid;
+  gap: 10px;
+}
+
+.library-item {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.next-article-button {
+  cursor: pointer;
+}
+
+.next-article-button:hover,
+.next-article-button:focus-visible {
+  border-color: var(--accent);
+  outline: 0;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.library-item h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.library-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.tag {
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+@media (max-width: 430px) {
+  .app-shell {
+    padding-inline: 12px;
+  }
+
+  .lesson-meta {
+    align-items: flex-start;
+  }
+
+  .sentence-block {
+    min-height: 244px;
+    padding: 16px;
+  }
+
+  .sentence-tools {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .quick-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    display: block;
+  }
+}
