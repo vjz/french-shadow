@@ -188,14 +188,6 @@ h2 {
   opacity: 0.45;
 }
 
-.tool-button.icon-tool {
-  width: 44px;
-  flex: 0 0 44px;
-  padding: 0;
-  font-size: 1.35rem;
-  line-height: 1;
-}
-
 .speed-control {
   display: inline-grid;
   min-height: 42px;
@@ -281,6 +273,8 @@ h2 {
   margin: 0 0.06em 0.2em 0;
   padding: 0 0.1em;
   border-radius: 6px;
+  cursor: pointer;
+  scroll-margin-block: 120px;
   vertical-align: top;
   transition:
     background 160ms ease,
@@ -290,6 +284,12 @@ h2 {
 
 .phrase-text {
   display: block;
+}
+
+.phrase:hover .phrase-text {
+  text-decoration: underline;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.13em;
 }
 
 .phrase-gloss {

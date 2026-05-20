@@ -143,7 +143,6 @@ const progressCount = document.querySelector("#progressCount");
 const progressRing = document.querySelector(".progress-ring");
 const statusText = document.querySelector("#statusText");
 const meterFill = document.querySelector("#meterFill");
-const backButton = document.querySelector("#backButton");
 const playButton = document.querySelector("#playButton");
 const repeatButton = document.querySelector("#repeatButton");
 const restartButton = document.querySelector("#restartButton");
@@ -265,7 +264,6 @@ function updateProgress() {
   progressCount.textContent = `${current}/${total}`;
   progressRing.style.setProperty("--progress", `${percent}%`);
   meterFill.style.width = `${Math.max(8, percent)}%`;
-  backButton.disabled = state.phraseIndex === 0;
   saveProgress();
 }
 
@@ -381,7 +379,11 @@ function loadNextArticle() {
 }
 
 playButton.addEventListener("click", speakFrench);
-backButton.addEventListener("click", () => goToPhrase(state.phraseIndex - 1));
+frenchText.addEventListener("click", (event) => {
+  const phrase = event.target.closest(".phrase");
+  if (!phrase) return;
+  goToPhrase(Number(phrase.dataset.phrase));
+});
 repeatButton.addEventListener("click", speakCurrentPhrase);
 restartButton.addEventListener("click", restartArticle);
 pauseSlider.addEventListener("input", updatePauseLabel);
