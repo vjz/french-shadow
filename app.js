@@ -358,6 +358,13 @@ function goToPhrase(nextIndex) {
   statusText.textContent = "Repeat the highlighted phrase.";
 }
 
+function jumpToPhrase(nextIndex, shouldContinue = false) {
+  goToPhrase(nextIndex);
+  if (shouldContinue) {
+    speakFrench();
+  }
+}
+
 function restartArticle() {
   goToPhrase(0);
   statusText.textContent = "Restarted at the first phrase.";
@@ -382,7 +389,7 @@ playButton.addEventListener("click", speakFrench);
 frenchText.addEventListener("click", (event) => {
   const phrase = event.target.closest(".phrase");
   if (!phrase) return;
-  goToPhrase(Number(phrase.dataset.phrase));
+  jumpToPhrase(Number(phrase.dataset.phrase), state.isPlaying);
 });
 repeatButton.addEventListener("click", speakCurrentPhrase);
 restartButton.addEventListener("click", restartArticle);
