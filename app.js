@@ -16,7 +16,7 @@ function originalChildrenStory(title, level, sentences) {
     title,
     type: "Children's story",
     level,
-    source: "Original children's story written for French Shadow. No copyrighted source material used.",
+    source: "Original children's story written for French Shadow.",
     sentences,
   };
 }
@@ -1109,30 +1109,30 @@ function renderPassage() {
 }
 
 function renderStoryLibrary() {
-  nextArticleContainer.innerHTML = childrenStoryEntries()
-    .map(({ article, index }) => {
-      const phraseCount = buildPhraseList(article).length;
-      const isCurrent = index === state.articleIndex;
-      return `
-        <button
-          class="library-item lesson-button${isCurrent ? " current" : ""}"
-          type="button"
-          data-article="${index}"
-          aria-current="${isCurrent ? "true" : "false"}"
-        >
-          <div>
-            <h3>${article.title}</h3>
-            <p>${article.type} · ${phraseCount} phrases</p>
-          </div>
-          <span class="tag">${article.level}</span>
-        </button>
-      `;
-    })
-    .join("");
+  const storyEntries = childrenStoryEntries();
+  const selectedStory = storyEntries.some(({ index }) => index === state.articleIndex)
+    ? state.articleIndex
+    : storyEntries[0]?.index;
 
-  nextArticleContainer.querySelectorAll(".lesson-button").forEach((button) => {
-    button.addEventListener("click", () => loadArticle(Number(button.dataset.article)));
-  });
+  nextArticleContainer.innerHTML = `
+    <div class="story-picker">
+      <select id="storySelect" aria-label="Choose a children's story">
+        ${storyEntries
+          .map(
+            ({ article, index }) => `
+              <option value="${index}"${index === selectedStory ? " selected" : ""}>
+                ${article.title} · ${article.level}
+              </option>
+            `,
+          )
+          .join("")}
+      </select>
+      <button class="secondary-button load-story-button" id="loadStoryButton" type="button">Load story</button>
+    </div>
+  `;
+
+  const storySelect = document.querySelector("#storySelect");
+  document.querySelector("#loadStoryButton").addEventListener("click", () => loadArticle(Number(storySelect.value)));
 }
 
 function renderPlayButton() {
