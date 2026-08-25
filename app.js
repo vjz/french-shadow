@@ -11,6 +11,16 @@ function laFontaineFable(title, level, sentences) {
   };
 }
 
+function originalChildrenStory(title, level, sentences) {
+  return {
+    title,
+    type: "Children's story",
+    level,
+    source: "Original children's story written for French Shadow. No copyrighted source material used.",
+    sentences,
+  };
+}
+
 const articles = [
   {
     title: "Le Corbeau et le Renard",
@@ -560,6 +570,360 @@ const articles = [
         ["combien ce fruit", "how that fruit"],
         ["est gros", "is large"],
         ["et sa tige menue,", "and its stem slender,"],
+      ],
+    },
+  ]),
+  originalChildrenStory("Le petit bateau rouge", "A1", [
+    {
+      parts: [
+        ["Lina trouve", "Lina finds"],
+        ["un petit bateau rouge", "a little red boat"],
+        ["près du bassin.", "near the pond."],
+      ],
+    },
+    {
+      parts: [
+        ["Elle le pousse", "She pushes it"],
+        ["doucement", "gently"],
+        ["sur l'eau calme.", "on the calm water."],
+      ],
+    },
+    {
+      parts: [
+        ["Le bateau revient", "The boat comes back"],
+        ["avec une feuille", "with a leaf"],
+        ["comme voile.", "as a sail."],
+      ],
+    },
+    {
+      parts: [
+        ["Lina sourit", "Lina smiles"],
+        ["et dit:", "and says:"],
+        ["bon voyage.", "have a good trip."],
+      ],
+    },
+  ]),
+  originalChildrenStory("La lune dans la flaque", "A1", [
+    {
+      parts: [
+        ["Noé voit", "Noah sees"],
+        ["la lune ronde", "the round moon"],
+        ["dans une flaque.", "in a puddle."],
+      ],
+    },
+    {
+      parts: [
+        ["Il pense", "He thinks"],
+        ["qu'elle est tombée", "that it has fallen"],
+        ["du ciel.", "from the sky."],
+      ],
+    },
+    {
+      parts: [
+        ["Sa soeur rit", "His sister laughs"],
+        ["et montre", "and points to"],
+        ["le ciel noir.", "the dark sky."],
+      ],
+    },
+    {
+      parts: [
+        ["La lune est là-haut,", "The moon is up there,"],
+        ["et aussi", "and also"],
+        ["dans nos yeux.", "in our eyes."],
+      ],
+    },
+  ]),
+  originalChildrenStory("Le jardin de Mamie", "A1", [
+    {
+      parts: [
+        ["Chez Mamie,", "At Grandma's house,"],
+        ["Tom arrose", "Tom waters"],
+        ["trois petites fleurs.", "three little flowers."],
+      ],
+    },
+    {
+      parts: [
+        ["Une fleur penche", "One flower leans"],
+        ["comme si elle dormait.", "as if it were sleeping."],
+      ],
+    },
+    {
+      parts: [
+        ["Tom lui chante", "Tom sings to it"],
+        ["une chanson douce.", "a gentle song."],
+      ],
+    },
+    {
+      parts: [
+        ["Le lendemain,", "The next day,"],
+        ["la fleur se lève", "the flower stands up"],
+        ["vers le soleil.", "toward the sun."],
+      ],
+    },
+  ]),
+  originalChildrenStory("La soupe aux étoiles", "A2", [
+    {
+      parts: [
+        ["Mila prépare", "Mila prepares"],
+        ["une soupe chaude", "a warm soup"],
+        ["pour le soir.", "for the evening."],
+      ],
+    },
+    {
+      parts: [
+        ["Elle coupe les carottes", "She cuts the carrots"],
+        ["en petites étoiles.", "into little stars."],
+      ],
+    },
+    {
+      parts: [
+        ["Son frère demande", "Her brother asks"],
+        ["si le ciel", "if the sky"],
+        ["a faim aussi.", "is hungry too."],
+      ],
+    },
+    {
+      parts: [
+        ["Mila répond", "Mila answers"],
+        ["que les étoiles", "that stars"],
+        ["brillent mieux", "shine better"],
+        ["dans un bol.", "in a bowl."],
+      ],
+    },
+  ]),
+  originalChildrenStory("Le chapeau qui écoute", "A2", [
+    {
+      parts: [
+        ["Dans le couloir,", "In the hallway,"],
+        ["un vieux chapeau", "an old hat"],
+        ["attend sur une chaise.", "waits on a chair."],
+      ],
+    },
+    {
+      parts: [
+        ["Chaque enfant", "Every child"],
+        ["lui confie", "tells it"],
+        ["un petit secret.", "a little secret."],
+      ],
+    },
+    {
+      parts: [
+        ["Le chapeau ne parle pas,", "The hat does not speak,"],
+        ["mais il garde", "but it keeps"],
+        ["tout très bien.", "everything very well."],
+      ],
+    },
+    {
+      parts: [
+        ["Quand il pleut,", "When it rains,"],
+        ["il semble sourire", "it seems to smile"],
+        ["sous les gouttes.", "under the drops."],
+      ],
+    },
+  ]),
+  originalChildrenStory("Nina et le nuage timide", "A2", [
+    {
+      parts: [
+        ["Un petit nuage", "A little cloud"],
+        ["se cache", "hides"],
+        ["derrière la colline.", "behind the hill."],
+      ],
+    },
+    {
+      parts: [
+        ["Nina lui fait signe", "Nina waves to it"],
+        ["avec son foulard jaune.", "with her yellow scarf."],
+      ],
+    },
+    {
+      parts: [
+        ["Le nuage avance", "The cloud moves forward"],
+        ["et donne", "and gives"],
+        ["une pluie légère.", "a light rain."],
+      ],
+    },
+    {
+      parts: [
+        ["Les graines du jardin", "The garden seeds"],
+        ["boivent en silence", "drink in silence"],
+        ["et grandissent.", "and grow."],
+      ],
+    },
+  ]),
+  originalChildrenStory("Le cartable de Sami", "A1", [
+    {
+      parts: [
+        ["Sami ouvre", "Sami opens"],
+        ["son cartable bleu", "his blue schoolbag"],
+        ["avant l'école.", "before school."],
+      ],
+    },
+    {
+      parts: [
+        ["Il trouve un crayon,", "He finds a pencil,"],
+        ["un cahier,", "a notebook,"],
+        ["et une pomme.", "and an apple."],
+      ],
+    },
+    {
+      parts: [
+        ["Au fond,", "At the bottom,"],
+        ["il y a aussi", "there is also"],
+        ["un dessin plié.", "a folded drawing."],
+      ],
+    },
+    {
+      parts: [
+        ["C'est un soleil", "It is a sun"],
+        ["pour son papa", "for his dad"],
+        ["qui travaille loin.", "who works far away."],
+      ],
+    },
+  ]),
+  originalChildrenStory("Le secret du banc vert", "A2", [
+    {
+      parts: [
+        ["Au parc,", "At the park,"],
+        ["un banc vert", "a green bench"],
+        ["grince doucement.", "creaks softly."],
+      ],
+    },
+    {
+      parts: [
+        ["Zoé s'assoit", "Zoe sits down"],
+        ["et entend", "and hears"],
+        ["un petit son.", "a little sound."],
+      ],
+    },
+    {
+      parts: [
+        ["Sous le banc,", "Under the bench,"],
+        ["elle découvre", "she discovers"],
+        ["une boîte de craies.", "a box of chalk."],
+      ],
+    },
+    {
+      parts: [
+        ["Elle dessine un chemin", "She draws a path"],
+        ["pour que les passants", "so that passersby"],
+        ["suivent la couleur.", "follow the color."],
+      ],
+    },
+  ]),
+  originalChildrenStory("La cloche du matin", "A1", [
+    {
+      parts: [
+        ["La cloche sonne", "The bell rings"],
+        ["dans la petite école.", "in the little school."],
+      ],
+    },
+    {
+      parts: [
+        ["Les enfants entrent", "The children enter"],
+        ["avec leurs manteaux", "with their coats"],
+        ["et leurs rires.", "and their laughter."],
+      ],
+    },
+    {
+      parts: [
+        ["Madame Rose écrit", "Madame Rose writes"],
+        ["bonjour", "hello"],
+        ["au tableau.", "on the board."],
+      ],
+    },
+    {
+      parts: [
+        ["Toute la classe répond", "The whole class answers"],
+        ["d'une seule voix.", "with one voice."],
+      ],
+    },
+  ]),
+  originalChildrenStory("Pablo compte les pas", "A1", [
+    {
+      parts: [
+        ["Pablo compte", "Pablo counts"],
+        ["ses pas", "his steps"],
+        ["jusqu'à la boulangerie.", "to the bakery."],
+      ],
+    },
+    {
+      parts: [
+        ["Un, deux, trois,", "One, two, three,"],
+        ["il saute", "he jumps"],
+        ["par-dessus une ligne.", "over a line."],
+      ],
+    },
+    {
+      parts: [
+        ["À dix,", "At ten,"],
+        ["il sent", "he smells"],
+        ["le pain chaud.", "the warm bread."],
+      ],
+    },
+    {
+      parts: [
+        ["À vingt,", "At twenty,"],
+        ["il offre une baguette", "he offers a baguette"],
+        ["à sa maman.", "to his mom."],
+      ],
+    },
+  ]),
+  originalChildrenStory("Le parapluie partagé", "A2", [
+    {
+      parts: [
+        ["Il pleut fort", "It rains hard"],
+        ["à la sortie", "at the exit"],
+        ["de la bibliothèque.", "of the library."],
+      ],
+    },
+    {
+      parts: [
+        ["Amel ouvre", "Amel opens"],
+        ["son grand parapluie", "her big umbrella"],
+        ["à rayures.", "with stripes."],
+      ],
+    },
+    {
+      parts: [
+        ["Un petit garçon", "A little boy"],
+        ["n'a pas de capuche.", "has no hood."],
+      ],
+    },
+    {
+      parts: [
+        ["Amel partage l'abri", "Amel shares the shelter"],
+        ["et ils marchent", "and they walk"],
+        ["au même rythme.", "at the same pace."],
+      ],
+    },
+  ]),
+  originalChildrenStory("La graine courageuse", "A2", [
+    {
+      parts: [
+        ["Une graine minuscule", "A tiny seed"],
+        ["tombe", "falls"],
+        ["entre deux pierres.", "between two stones."],
+      ],
+    },
+    {
+      parts: [
+        ["Elle entend le vent", "It hears the wind"],
+        ["et sent", "and feels"],
+        ["la terre froide.", "the cold earth."],
+      ],
+    },
+    {
+      parts: [
+        ["Chaque matin,", "Every morning,"],
+        ["elle pousse", "it pushes"],
+        ["un peu plus.", "a little more."],
+      ],
+    },
+    {
+      parts: [
+        ["Un jour,", "One day,"],
+        ["une tige verte", "a green stem"],
+        ["salue le soleil.", "greets the sun."],
       ],
     },
   ]),
