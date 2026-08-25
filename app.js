@@ -1033,8 +1033,10 @@ function currentArticle() {
   return articles[state.articleIndex];
 }
 
-function nextArticle() {
-  return articles[(state.articleIndex + 1) % articles.length];
+function childrenStoryEntries() {
+  return articles
+    .map((article, index) => ({ article, index }))
+    .filter(({ article }) => article.type === "Children's story");
 }
 
 function readSavedProgress() {
@@ -1106,19 +1108,31 @@ function renderPassage() {
   highlightPhrase(state.phraseIndex, "repeat");
 }
 
-function renderNextArticle() {
-  const article = nextArticle();
-  const phraseCount = buildPhraseList(article).length;
-  nextArticleContainer.innerHTML = `
-    <button class="library-item next-article-button" id="nextArticleButton" type="button">
-      <div>
-        <h3>${article.title}</h3>
-        <p>${article.type} · ${phraseCount} phrases</p>
-      </div>
-      <span class="tag">${article.level}</span>
-    </button>
-  `;
-  document.querySelector("#nextArticleButton").addEventListener("click", loadNextArticle);
+function renderStoryLibrary() {
+  nextArticleContainer.innerHTML = childrenStoryEntries()
+    .map(({ article, index }) => {
+      const phraseCount = buildPhraseList(article).length;
+      const isCurrent = index === state.articleIndex;
+      return `
+        <button
+          class="library-item lesson-button${isCurrent ? " current" : ""}"
+          type="button"
+          data-article="${index}"
+          aria-current="${isCurrent ? "true" : "false"}"
+        >
+          <div>
+            <h3>${article.title}</h3>
+            <p>${article.type} · ${phraseCount} phrases</p>
+          </div>
+          <span class="tag">${article.level}</span>
+        </button>
+      `;
+    })
+    .join("");
+
+  nextArticleContainer.querySelectorAll(".lesson-button").forEach((button) => {
+    button.addEventListener("click", () => loadArticle(Number(button.dataset.article)));
+  });
 }
 
 function renderPlayButton() {
@@ -1247,17 +1261,18 @@ function restartArticle() {
   statusText.textContent = "Restarted at the first phrase.";
 }
 
-function loadNextArticle() {
+function loadArticle(articleIndex) {
+  if (!Number.isInteger(articleIndex) || !articles[articleIndex]) return;
   state.speechRun += 1;
   state.isPlaying = false;
   window.speechSynthesis.cancel();
-  state.articleIndex = (state.articleIndex + 1) % articles.length;
+  state.articleIndex = articleIndex;
   state.phraseIndex = 0;
   phraseList = buildPhraseList(currentArticle());
   renderPlayButton();
   renderLessonMeta();
   renderPassage();
-  renderNextArticle();
+  renderStoryLibrary();
   statusText.textContent = "New article loaded. Start with the highlighted phrase.";
   saveProgress();
 }
@@ -1291,4 +1306,4 @@ updatePauseLabel();
 renderPlayButton();
 renderLessonMeta();
 renderPassage();
-renderNextArticle();
+renderStoryLibrary();

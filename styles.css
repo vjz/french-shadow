@@ -419,15 +419,20 @@ h2 {
   background: var(--panel);
 }
 
-.next-article-button {
+.lesson-button {
   cursor: pointer;
 }
 
-.next-article-button:hover,
-.next-article-button:focus-visible {
+.lesson-button:hover,
+.lesson-button:focus-visible,
+.lesson-button.current {
   border-color: var(--accent);
   outline: 0;
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.lesson-button.current {
+  background: color-mix(in srgb, var(--panel) 78%, var(--accent-soft));
 }
 
 .library-item h3 {
